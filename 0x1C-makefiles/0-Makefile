@@ -1,0 +1,11 @@
+all: school
+
+school: main.o school.o
+	@gcc main.c school.c -o $@
+	@echo "gcc main.c school.c -o school"
+
+%.o: %.c m.h
+	@gcc -c -o $@ $<
+
+clean:
+	rm -rf *.o school
